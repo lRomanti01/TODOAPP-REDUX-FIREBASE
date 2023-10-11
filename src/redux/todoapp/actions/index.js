@@ -6,6 +6,7 @@ export const GET_TODO = 'GET_TODO'
 export const REMOVE_TODO = 'REMOVE_TODO'
 export const UPDATE_TODO = 'UPDATE_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TODO';
+export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 
 export const postTodo = (newTodo, userId) => async (dispatch) => {
   try{
@@ -112,3 +113,18 @@ export const toggleTodo = (idTodo, userId) => async (dispatch) => {
     console.error(error);
   }
 }
+
+export const clearCompleted = (allTodos, userId) => async (dispatch) => {
+  const q = query(collection(db, 'user', userId, 'todos'));
+  const todos = await getDocs(q);
+    for(var snap of todos.docs){
+      const data = snap.data()
+      if(data.completed){
+        await deleteDoc(doc(db, 'user', userId, 'todos', snap.id))
+      }
+  }
+  dispatch({
+    type: CLEAR_COMPLETED,
+    payload: allTodos
+  })
+};

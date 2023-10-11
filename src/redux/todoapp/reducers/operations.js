@@ -3,6 +3,7 @@ import {
   UPDATE_TODO, 
   REMOVE_TODO, 
   TOGGLE_TODO, 
+  CLEAR_COMPLETED, 
   GET_TODO} from "../actions";
 
 const initialState = []
@@ -43,6 +44,10 @@ export const operationReducer = (state = initialState, action) => {
         toggleUpdatedArray.push(item)
       })
       return toggleUpdatedArray
+
+    case CLEAR_COMPLETED: 
+      const filteredNonCompleted = state.filter((todo) => !todo.completed)
+      return filteredNonCompleted;
 
     default: return state;
   }

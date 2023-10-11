@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
+import { clearCompleted } from "../redux/todoapp/actions";
 import { useUserContext } from "../context/UserContext";
 
 const TodoComputed = () => {
@@ -13,7 +14,13 @@ const TodoComputed = () => {
   return (
     <section className="p-4 flex justify-between bg-white rounded-md transition-all duration-500">
       <span className="text-gray-400">{computedItemLeft} items left</span>
-      </section>
+      <button
+        className="text-gray-400 hover:text-gray-300"
+        onClick={() => dispatch(clearCompleted(todos, user.uid))}
+      >
+        Clear completed
+      </button>
+    </section>
   );
 };
 
