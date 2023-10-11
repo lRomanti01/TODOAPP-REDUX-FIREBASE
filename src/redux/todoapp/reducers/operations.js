@@ -10,6 +10,17 @@ const initialState = []
 
 export const operationReducer = (state = initialState, action) => {
   switch(action.type){
+    
+    case ADD_TODO:
+      return [...state, action.payload];
+
+    case GET_TODO: 
+      return action.payload
+
+    case REMOVE_TODO: 
+      const filteredTodos = state.filter((todo) => todo.id !== action.payload)
+      return filteredTodos;
+
     default: return state;
   }
 }

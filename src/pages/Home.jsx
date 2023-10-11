@@ -1,3 +1,5 @@
+import Todos from "../components/Todos";
+import Header from "../components/Header";
 import { logout } from "../config/firebase";
 
 const Home = () => {
@@ -26,6 +28,8 @@ const Home = () => {
             Log out
           </button>
         </div>
+        <Header />
+        <Todos />
       </main>
     </div>
   );
