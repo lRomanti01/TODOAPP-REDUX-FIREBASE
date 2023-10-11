@@ -1,4 +1,4 @@
-import Todos from "../components/Todos";
+import TodosList from "../components/TodosList";
 import Header from "../components/Header";
 import TodoComputed from "../components/TodoComputed";
 import { logout } from "../config/firebase";
@@ -9,13 +9,13 @@ function Home() {
     try {
       await logout();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   return (
     <div className="min-h-screen w-full p-4 bg-slate-400">
-      <main className="mx-auto md:max-w-xl">
+      <div className="mx-auto md:max-w-xl">
         <div className="flex justify-between">
           <h1 className="text-slate-100 px-3 font-bold text-5xl tracking-widest">
             TODO
@@ -31,9 +31,9 @@ function Home() {
         </div>
 
         <Header />
-        <Todos />
+        <TodosList />
         <TodoComputed />
-      </main>
+      </div>
     </div>
   );
 }

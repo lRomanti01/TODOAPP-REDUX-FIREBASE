@@ -2,7 +2,8 @@ import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
-const AddButton = ({ setVisible }) => {
+// Button component to add more todos
+function AddButton({ setVisible }){
   const todos = useSelector((state) => state.operationReducer);
 
   return (
@@ -18,6 +19,6 @@ const AddButton = ({ setVisible }) => {
       )}
     </button>
   );
-};
+}
 
 export default AddButton;

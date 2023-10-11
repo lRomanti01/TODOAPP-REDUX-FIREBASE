@@ -4,7 +4,9 @@ import { updateTodo } from "../redux/todoapp/actions";
 import { FaX } from "react-icons/fa6";
 import { useUserContext } from "../context/UserContext";
 
-const EditForm = ({ selectedTodo, openEditForm, setOpenEditForm }) => {
+//Component to update the values of todos
+
+function EditForm({ selectedTodo, openEditForm, setOpenEditForm }){
   const { user } = useUserContext();
   const dispatch = useDispatch();
   const [title, setTitle] = useState(selectedTodo.title);

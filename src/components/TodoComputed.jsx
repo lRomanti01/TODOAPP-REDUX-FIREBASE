@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 import { clearCompleted } from "../redux/todoapp/actions";
 import { useUserContext } from "../context/UserContext";
 
-const TodoComputed = () => {
+function TodoComputed(){
 
-  const { user } = useUserContext();
   const dispatch = useDispatch();
+  const { user } = useUserContext();
+  
   const todos = useSelector((state) => state.operationReducer);
   const computedItemLeft = todos.filter((todo) => !todo.completed).length;
 

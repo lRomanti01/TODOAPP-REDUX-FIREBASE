@@ -6,7 +6,7 @@ import EditForm from "./EditForm";
 import { getTodos } from "../redux/todoapp/actions";
 import { useUserContext } from "../context/UserContext";
 
-const Todos = () => {
+function TodosList(){
   const dispatch = useDispatch();
   const [openEditForm, setOpenEditForm] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState("");
@@ -25,7 +25,7 @@ const Todos = () => {
   }, [dispatch])
 
   return (
-    <div className="py-3 px-2 bg-slate-400">
+    <main className="py-3 px-2 bg-slate-400">
       {todos.map((todo) => (
         <div
           key={todo.id}
@@ -82,8 +82,8 @@ const Todos = () => {
           </div>
         </div>
       ))}
-    </div>
+    </main>
   );
 };
 
-export default Todos;
+export default TodosList;

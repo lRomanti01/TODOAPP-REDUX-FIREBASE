@@ -4,21 +4,29 @@ import { FaX } from "react-icons/fa6";
 import { postTodo } from "../redux/todoapp/actions";
 import { useUserContext } from "../context/UserContext";
 
-const Form = ({ visible, setVisible }) => {
+//Component to write the values of the new Todo
+
+function AddForm({ visible, setVisible }){
   const dispatch = useDispatch();
+  const { user } = useUserContext();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const { user } = useUserContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     let date = new Date();
+
+    //Get time for getting a number as an id
+
     let time = date.getTime();
-    const day = date.getDate().toString().padStart(2, '0'); // Día del mes
-    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Mes (0-11)
-    const year = date.getFullYear().toString(); // Año
-    const hours = date.getHours().toString().padStart(2, '0'); // Horas (0-23)
-    const minutes = date.getMinutes().toString().padStart(2, '0'); // Minutos
+
+    const day = date.getDate().toString().padStart(2, '0'); // Day of month
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month (0-11)
+    const year = date.getFullYear().toString(); // Year
+    const hours = date.getHours().toString().padStart(2, '0'); // Hours (0-23)
+    const minutes = date.getMinutes().toString().padStart(2, '0'); // Minutes
 
     const formattedDate = `${day}/${month}/${year}, ${hours}:${minutes}`;
 
@@ -104,4 +112,4 @@ const Form = ({ visible, setVisible }) => {
   );
 };
 
-export default Form;
+export default AddForm;
