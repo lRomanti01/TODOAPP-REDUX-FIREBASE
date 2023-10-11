@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaEdit, FaTrash, FaCheck } from "react-icons/fa";
+import { removeTodo, toggleTodo } from "../redux/todoapp/actions";
+import EditForm from "./EditForm";
 import { getTodos } from "../redux/todoapp/actions";
 import { useUserContext } from "../context/UserContext";
 
@@ -12,6 +14,11 @@ const Todos = () => {
 
   const todos = useSelector((state) => state.operationReducer);
   console.log(todos);
+
+  const handleEditFormWithSelectedTodo = (todo) => {
+    setOpenEditForm(true);
+    setSelectedTodo(todo);
+  };
 
   useEffect(() => {
     dispatch(getTodos(user.uid))
@@ -26,6 +33,7 @@ const Todos = () => {
         >
           <div className="flex items-center">
             <button
+              onClick={() => dispatch(toggleTodo(todo.id, user.uid))}
               className={`flex items-center justify-center rounded-full border-2 h-9 w-9 hover:border-slate-400
           ${
             todo.completed
@@ -53,14 +61,23 @@ const Todos = () => {
             <div className="flex justify-between gap-3">
               <button>
                 <FaEdit
+                  onClick={() => handleEditFormWithSelectedTodo(todo)}
                   className="h-full w-9 fill-slate-700 hover:fill-slate-500"
                 />
               </button>
               <button>
                 <FaTrash
+                  onClick={() => dispatch(removeTodo(todo.id, user.uid))}
                   className="h-full w-7 fill-slate-700 hover:fill-slate-500"
                 />
               </button>
+              {openEditForm && (
+                <EditForm
+                  selectedTodo={selectedTodo}
+                  openEditForm={openEditForm}
+                  setOpenEditForm={setOpenEditForm}
+                />
+              )}
             </div>
           </div>
         </div>

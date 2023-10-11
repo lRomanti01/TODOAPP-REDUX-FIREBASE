@@ -1,8 +1,9 @@
 import Todos from "../components/Todos";
 import Header from "../components/Header";
+import TodoComputed from "../components/TodoComputed";
 import { logout } from "../config/firebase";
 
-const Home = () => {
+function Home() {
 
   const handleLogout = async () => {
     try {
@@ -28,8 +29,10 @@ const Home = () => {
             Log out
           </button>
         </div>
+
         <Header />
         <Todos />
+        <TodoComputed />
       </main>
     </div>
   );

@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useUserContext } from "../context/UserContext";
 import { useRedirectActiveUser } from "../hooks/useRedirectActiveUser";
 import { auth, provider } from "../config/firebase";
 import { signInWithPopup } from "firebase/auth";
 
 const Login = () => {
-
   const { user } = useUserContext();
   useRedirectActiveUser(user, "/home");
 

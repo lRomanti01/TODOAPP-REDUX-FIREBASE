@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddButton from "../components/AddButton";
 import Form from "../components/Form";
 import { useUserContext } from "../context/UserContext";
 
@@ -8,9 +9,7 @@ const Header = () => {
 
   return (
     <div className="px-3 flex justify-between items-center">
-      <button>
-        Add
-      </button>
+      <AddButton setVisible={setVisible}/>
       <p className="text-white font-semibold text-md pt-4">
         {user.displayName}
       </p>
