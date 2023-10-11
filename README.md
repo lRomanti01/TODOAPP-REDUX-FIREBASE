@@ -5,6 +5,9 @@
 Este proyecto es un Todo App con una UI sencilla donde le dedico mas
 tiempo a la funcionalidad que al UI. Esta app cumple con los requisitos de poder crear todos, modificarlos, eliminarlos y marcarlos como completados. Incluye un botón para eliminar los todos completados.
 
+![Captura login](/src/assets/Login-capture.png)
+![Captura app](/src/assets/Home-capture.png)
+
 Este Todo App utiliza firebase para iniciar sesión (Solo con google).
 Y guarda cada Todo para cada usuario. Y utiliza react router para crear una ruta protegida a la cual solo se puede entrar con la cuenta iniciada, así mejorando la experiencia de usuario.
 
@@ -31,6 +34,8 @@ En este trabajo se ha utilizado varias tecnologías, entre esta tenemos:
 
 5- Escribir comando **npm run dev** para correr la aplicación
 
-Una vez que haya terminado, puede cerrar la aplicación en su terminal para salir de la aplicación. dependencias
+Una vez que haya terminado, puede cerrar la aplicación en su terminal para salir de la aplicación.
+
+
 
 
