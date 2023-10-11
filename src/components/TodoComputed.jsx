@@ -13,9 +13,9 @@ const TodoComputed = () => {
 
   return (
     <section className="p-4 flex justify-between bg-white rounded-md transition-all duration-500">
-      <span className="text-gray-400">{computedItemLeft} items left</span>
+      <span className="text-gray-700 font-semibold">{computedItemLeft} items left</span>
       <button
-        className="text-gray-400 hover:text-gray-300"
+        className="text-gray-700 hover:text-gray-500 font-semibold"
         onClick={() => dispatch(clearCompleted(todos, user.uid))}
       >
         Clear completed

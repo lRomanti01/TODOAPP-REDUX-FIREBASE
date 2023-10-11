@@ -7,10 +7,10 @@ const AddButton = ({ setVisible }) => {
 
   return (
     <button
-      className="mt-5 flex items-center gap-2"
+      className="mt-5 flex flex-col-reverse sm:flex-row items-center gap-2"
       onClick={() => setVisible(true)}
     >
-      <FaPlus className="h-full w-9 fill-white hover:fill-slate-200" />
+      <FaPlus className="h-full w-9 fill-white hover:fill-slate-200 hover:animate-halfSpin transition-all duration-150" />
       {!todos.length && (
         <p className="font-bold text-md uppercase text-white animate-pulse">
           Click to add task
