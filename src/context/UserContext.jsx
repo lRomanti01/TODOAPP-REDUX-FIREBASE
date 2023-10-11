@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 import { auth } from "../config/firebase";
+import Loader from "../components/Loader";
 
 const UserContext = createContext();
 
@@ -17,7 +18,7 @@ export default function UserContextProvider({ children }) {
     return unsuscribe;
   }, []);
 
-  if (user === false) return <h1>Loading</h1>;
+  if (user === false) return <Loader />;
 
   return (
     <UserContext.Provider value={{ user }}>
