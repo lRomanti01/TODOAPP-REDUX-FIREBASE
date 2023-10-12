@@ -45,7 +45,7 @@ function Header() {
         </div>
         <p className="text-white font-semibold text-md pb-3 mt-4">{userName}</p>
       </div>
-      <AddForm visible={visible} setVisible={setVisible} />
+      {visible && <AddForm visible={visible} setVisible={setVisible} />}
     </div>
   );
 }

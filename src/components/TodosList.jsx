@@ -36,7 +36,7 @@ function TodosList() {
               className={`overflow-hidden flex items-center justify-center rounded-full border-2 h-9 w-9 border-slate-600 hover:border-slate-400`}
             >
               <div
-                className={`w-full h-full flex items-center justify-center
+                className={`w-full h-full flex items-center justify-center -z-10
                ${
                  todo.completed
                    ? "bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700 animate-appearance"
