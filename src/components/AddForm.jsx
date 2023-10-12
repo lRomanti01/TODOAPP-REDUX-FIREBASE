@@ -57,7 +57,7 @@ function AddForm({ visible, setVisible }) {
       >
         <form
           onSubmit={handleSubmit}
-          className="p-5 absolute sm:w-[80%] h-[40%] mx-auto md:max-w-xl bg-slate-100 bg-opacity-60 rounded-2xl overflow-hidden flex gap-6 flex-col transition-all duration-500 animate-scaleAnimation"
+          className="p-8 absolute sm:w-[80%] h-96 mx-auto md:max-w-xl bg-slate-100 bg-opacity-60 rounded-2xl overflow-hidden flex gap-6 flex-col transition-all duration-500 animate-scaleAnimation"
         >
           <p className="text-center text-2xl font-bold text-black uppercase">
             ADD ToDo

@@ -13,7 +13,6 @@ function TodosList() {
   const { user } = useUserContext();
 
   const todos = useSelector((state) => state.operationReducer);
-  console.log(user.photoURL);
 
   const handleEditFormWithSelectedTodo = (todo) => {
     setOpenEditForm(true);
