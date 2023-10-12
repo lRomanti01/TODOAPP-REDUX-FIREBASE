@@ -30,14 +30,12 @@ export const getTodos = (userId) => async (dispatch) => {
   try {
     const q = query(collection(db, 'user', userId, 'todos'));
     const todos = await getDocs(q);
-
     const todosArray = [];
 
     todos.forEach((doc) => {
       const data = doc.data();
       todosArray.push({ id: doc.id, ...data });
     });
-
     dispatch({
       type: GET_TODO,
       payload: todosArray
@@ -49,18 +47,18 @@ export const getTodos = (userId) => async (dispatch) => {
 
 export const removeTodo = (idTodo, userId) => async (dispatch) => {
   try{
-  const q = query(collection(db, 'user', userId, 'todos'));
-  const todos = await getDocs(q);
+    const q = query(collection(db, 'user', userId, 'todos'));
+    const todos = await getDocs(q);
     for(var snap of todos.docs){
       const data = snap.data()
       if(data.id === idTodo){
         await deleteDoc(doc(db, 'user', userId, 'todos', snap.id))
+      }
     }
-  }
-  dispatch({
-    type: REMOVE_TODO,
-    payload: idTodo
-  })
+    dispatch({
+      type: REMOVE_TODO,
+      payload: idTodo
+    })
   } catch (error) {
     console.error(error);
   }
@@ -68,8 +66,8 @@ export const removeTodo = (idTodo, userId) => async (dispatch) => {
 
 export const updateTodo = (editedTodo, userId) => async (dispatch) => {
   try{
-  const q = query(collection(db, 'user', userId, 'todos'));
-  const todos = await getDocs(q);
+    const q = query(collection(db, 'user', userId, 'todos'));
+    const todos = await getDocs(q);
     for(var snap of todos.docs){
       const data = snap.data()
       if(data.id === editedTodo.id){
@@ -81,12 +79,12 @@ export const updateTodo = (editedTodo, userId) => async (dispatch) => {
           date: editedTodo.date,
           completed: editedTodo.completed
         })
+      }
     }
-  }
-  dispatch({
-    type: UPDATE_TODO,
-    payload: editedTodo
-  })
+    dispatch({
+      type: UPDATE_TODO,
+      payload: editedTodo
+    })
   } catch (error) {
     console.error(error);
   }
@@ -105,26 +103,30 @@ export const toggleTodo = (idTodo, userId) => async (dispatch) => {
           })
         }
       }
-    dispatch({
-      type: TOGGLE_TODO,
-      payload: idTodo
-    })
+      dispatch({
+        type: TOGGLE_TODO,
+        payload: idTodo
+      })
   } catch (error) {
     console.error(error);
   }
 }
 
 export const clearCompleted = (allTodos, userId) => async (dispatch) => {
-  const q = query(collection(db, 'user', userId, 'todos'));
-  const todos = await getDocs(q);
-    for(var snap of todos.docs){
-      const data = snap.data()
-      if(data.completed){
-        await deleteDoc(doc(db, 'user', userId, 'todos', snap.id))
+  try{
+    const q = query(collection(db, 'user', userId, 'todos'));
+    const todos = await getDocs(q);
+      for(var snap of todos.docs){
+        const data = snap.data()
+        if(data.completed){
+          await deleteDoc(doc(db, 'user', userId, 'todos', snap.id))
+        }
       }
+      dispatch({
+        type: CLEAR_COMPLETED,
+        payload: allTodos
+      })
+  }catch (error){
+    console.error(error)
   }
-  dispatch({
-    type: CLEAR_COMPLETED,
-    payload: allTodos
-  })
 };

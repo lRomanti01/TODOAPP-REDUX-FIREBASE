@@ -13,10 +13,10 @@ function TodoComputed(){
   const computedItemLeft = todos.filter((todo) => !todo.completed).length;
 
   return (
-    <section className="p-4 flex justify-between bg-white rounded-md transition-all duration-500">
-      <span className="text-gray-700 font-semibold">{computedItemLeft} items left</span>
+    <section className="p-4 flex justify-between bg-white bg-opacity-60 rounded-md transition-all duration-500">
+      <span className="text-black font-semibold">{computedItemLeft} items left</span>
       <button
-        className="text-gray-700 hover:text-gray-500 font-semibold"
+        className="text-black hover:text-gray-600 font-semibold"
         onClick={() => dispatch(clearCompleted(todos, user.uid))}
       >
         Clear completed

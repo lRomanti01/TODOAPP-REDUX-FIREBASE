@@ -4,7 +4,6 @@ import TodoComputed from "../components/TodoComputed";
 import { logout } from "../config/firebase";
 
 function Home() {
-
   const handleLogout = async () => {
     try {
       await logout();
@@ -14,8 +13,9 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen w-full p-4 bg-slate-400">
-      <div className="mx-auto md:max-w-xl">
+    <div className="min-h-screen bg-slate-400 flex">
+      <div className="absolute w-full h-full bg-[url('./assets/Dawn.png')] bg-center bg-cover bg-no-repeat backdrop-blur-md blur-sm"></div>
+      <div className="mx-auto md:max-w-xl z-10 p-10">
         <div className="flex justify-between">
           <h1 className="text-slate-100 px-3 font-bold text-5xl tracking-widest">
             TODO

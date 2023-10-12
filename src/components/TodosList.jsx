@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaEdit, FaTrash, FaCheck } from "react-icons/fa";
 import { removeTodo, toggleTodo } from "../redux/todoapp/actions";
@@ -6,7 +6,7 @@ import EditForm from "./EditForm";
 import { getTodos } from "../redux/todoapp/actions";
 import { useUserContext } from "../context/UserContext";
 
-function TodosList(){
+function TodosList() {
   const dispatch = useDispatch();
   const [openEditForm, setOpenEditForm] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState("");
@@ -21,27 +21,38 @@ function TodosList(){
   };
 
   useEffect(() => {
-    dispatch(getTodos(user.uid))
-  }, [dispatch])
+    dispatch(getTodos(user.uid));
+  }, [dispatch]);
 
   return (
-    <main className="py-3 px-2 bg-slate-400">
+    <main className="py-3 px-2">
       {todos.map((todo) => (
         <div
           key={todo.id}
-          className="flex gap-3 border-b bg-slate-100 py-2 px-4 rounded-xl mb-2"
+          className="flex gap-3 border-b bg-slate-100 bg-opacity-60 py-2 px-8 rounded-xl mb-2 hover:scale-105 transition-all duration-300"
         >
           <div className="flex items-center">
             <button
               onClick={() => dispatch(toggleTodo(todo.id, user.uid))}
-              className={`flex items-center justify-center rounded-full border-2 h-9 w-9 hover:border-slate-400
-          ${
-            todo.completed
-              ? "bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700"
-              : "inline-block"
-          } `}
+              className={`overflow-hidden flex items-center justify-center rounded-full border-2 h-9 w-9 border-slate-600 hover:border-slate-400`}
             >
-              {todo.completed && <FaCheck className="fill-white" />}
+              {todo.completed ? (
+                <FaCheck
+                  className={`fill-white w-full h-full transition-all duration-500
+                   ${
+                     todo.completed &&
+                     "bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700 animate-appearance"
+                   }`}
+                />
+              ) : (
+                <FaCheck
+                  className={`fill-transparent w-full h-full transition-all duration-500 
+                 ${
+                   !todo.completed &&
+                   "bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700 animate-appearanceOut"
+                 }`}
+                />
+              )}
             </button>
           </div>
           <div className="flex justify-between w-full">
@@ -50,7 +61,7 @@ function TodosList(){
                 className={`grow text-xl font-semibold ${
                   todo.completed
                     ? "text-gray-400 line-through"
-                    : "text-gray-500"
+                    : "text-gray-700"
                 }`}
               >
                 {todo.title}
@@ -58,7 +69,7 @@ function TodosList(){
               <p className="text-sm px-1">{todo.description}</p>
               <p className="uppercase text-xs font-bold">{todo.date}</p>
             </div>
-            <div className="flex justify-between gap-3">
+            <div className="flex justify-between gap-3 ml-3">
               <button>
                 <FaEdit
                   onClick={() => handleEditFormWithSelectedTodo(todo)}
@@ -84,6 +95,6 @@ function TodosList(){
       ))}
     </main>
   );
-};
+}
 
 export default TodosList;
