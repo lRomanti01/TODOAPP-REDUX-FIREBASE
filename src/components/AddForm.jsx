@@ -6,7 +6,7 @@ import { useUserContext } from "../context/UserContext";
 
 //Component to write the values of the new Todo
 
-function AddForm({ visible, setVisible }){
+function AddForm({ visible, setVisible }) {
   const dispatch = useDispatch();
   const { user } = useUserContext();
 
@@ -22,11 +22,11 @@ function AddForm({ visible, setVisible }){
 
     let time = date.getTime();
 
-    const day = date.getDate().toString().padStart(2, '0'); // Day of month
-    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month (0-11)
+    const day = date.getDate().toString().padStart(2, "0"); // Day of month
+    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Month (0-11)
     const year = date.getFullYear().toString(); // Year
-    const hours = date.getHours().toString().padStart(2, '0'); // Hours (0-23)
-    const minutes = date.getMinutes().toString().padStart(2, '0'); // Minutes
+    const hours = date.getHours().toString().padStart(2, "0"); // Hours (0-23)
+    const minutes = date.getMinutes().toString().padStart(2, "0"); // Minutes
 
     const formattedDate = `${day}/${month}/${year}, ${hours}:${minutes}`;
 
@@ -39,41 +39,38 @@ function AddForm({ visible, setVisible }){
     };
     setTitle("");
     setDescription("");
-    setVisible(false)
+    setVisible(false);
     dispatch(postTodo(todoObj, user.uid, time));
   };
 
   const closeForm = () => {
-    setVisible(false)
+    setVisible(false);
     setTitle("");
     setDescription("");
-  }
+  };
 
   return (
     visible && (
       <div
         className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden opacity-100 flex flex-col items-center justify-center"
-        style={{ background: "rgba(55, 65, 81, 0.5)" }}
+        style={{ background: "rgba(55, 65, 81, 0.7)" }}
       >
         <form
           onSubmit={handleSubmit}
-          className="absolute w-[80%] mx-auto md:max-w-xl bg-slate-400 h-80 rounded-md overflow-hidden p-3 flex gap-6 flex-col transition-all duration-500"
+          className="p-5 absolute sm:w-[80%] h-[40%] mx-auto md:max-w-xl bg-slate-100 bg-opacity-60 rounded-2xl overflow-hidden flex gap-6 flex-col transition-all duration-500 animate-scaleAnimation"
         >
-          <p className="text-center text-2xl font-bold text-slate-100">
+          <p className="text-center text-2xl font-bold text-black uppercase">
             ADD ToDo
           </p>
-          <button
-            onClick={closeForm}
-            className="absolute right-5 h-6"
-          >
+          <button onClick={closeForm} className="absolute right-5 h-6">
             <FaX className="w-full h-full cursor-pointer hover:fill-red-500" />
           </button>
-          <div>
-            <label className="text-white text-xl font-semibold tracking-wider">
+          <div className="mb-3">
+            <label className="text-black text-xl font-semibold tracking-wider">
               Title
             </label>
             <input
-              className="w-full rounded-md h-10 p-3 text-gray-500 outline-none transition-all duration-500"
+              className="w-full mt-2 rounded-md h-10 p-3 border-2 border-gray-500 text-gray-800 font-semibold outline-none transition-all duration-500"
               type="text"
               placeholder="Write the title..."
               value={title}
@@ -81,11 +78,11 @@ function AddForm({ visible, setVisible }){
             />
           </div>
           <div>
-            <label className="text-white text-xl font-semibold tracking-wider">
+            <label className="text-black text-xl font-semibold tracking-wider">
               Description
             </label>
             <input
-              className="w-full rounded-md h-10 p-3 text-gray-500 outline-none transition-all duration-500"
+              className="w-full mt-2 rounded-md h-10 p-3 border-2 border-gray-500 text-gray-800 font-semibold outline-none transition-all duration-500"
               type="text"
               placeholder="Write a description..."
               value={description}
@@ -110,6 +107,6 @@ function AddForm({ visible, setVisible }){
       </div>
     )
   );
-};
+}
 
 export default AddForm;
