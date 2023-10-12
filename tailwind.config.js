@@ -34,7 +34,8 @@ export default {
         'appearance': 'appearance .8s forwards',
         'appearanceOut': 'appearanceOut .3s forwards',
         'scaleAnimation': 'scaleAnimation .5s forwards',
-        'scaleAnimationOut': 'scaleAnimationOut .5s forwards'
+        'scaleAnimationOut': 'scaleAnimationOut .5s forwards',
+        'slowSpin' : 'spin 1.5s linear infinite'
       }
       },
     },

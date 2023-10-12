@@ -8,7 +8,7 @@ function AddButton({ setVisible }){
 
   return (
     <button
-      className="mt-5 flex flex-col-reverse sm:flex-row items-center gap-2"
+      className="mt-5 flex flex-col-reverse sm:flex-row items-center gap-2 mr-7"
       onClick={() => setVisible(true)}
     >
       <FaPlus className="h-full w-9 fill-white hover:fill-slate-200 hover:animate-halfSpin transition-all duration-150" />
