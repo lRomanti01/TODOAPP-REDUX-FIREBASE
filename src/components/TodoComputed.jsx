@@ -8,7 +8,6 @@ function TodoComputed(){
 
   const dispatch = useDispatch();
   const { user } = useUserContext();
-  
   const todos = useSelector((state) => state.operationReducer);
   const computedItemLeft = todos.filter((todo) => !todo.completed).length;
 
