@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { updateTodo } from "../redux/todoapp/actions";
 import { FaX } from "react-icons/fa6";
@@ -47,11 +47,11 @@ function EditForm({ selectedTodo, openEditForm, setOpenEditForm }){
     openEditForm && (
       <div
         className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden opacity-100 flex flex-col items-center justify-center"
-        style={{ background: "rgba(55, 65, 81, 0.3)" }}
+        style={{ background: "rgba(55, 65, 81, 0.5)" }}
       >
         <form
           onSubmit={handleSubmit}
-          className="absolute w-[80%] mx-auto md:max-w-xl bg-slate-400 h-80 rounded-md overflow-hidden p-3 flex gap-6 flex-col transition-all duration-500"
+          className="absolute w-[80%] mx-auto md:max-w-xl bg-slate-400 h-80 rounded-2xl overflow-hidden p-3 flex gap-6 flex-col transition-all duration-500 animate-scaleAnimation"
         >
           <p className="text-center text-2xl font-bold text-slate-100">
             EDIT ToDo

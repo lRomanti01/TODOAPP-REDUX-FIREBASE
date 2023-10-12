@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaEdit, FaTrash, FaCheck } from "react-icons/fa";
 import { removeTodo, toggleTodo } from "../redux/todoapp/actions";
@@ -13,7 +13,7 @@ function TodosList() {
   const { user } = useUserContext();
 
   const todos = useSelector((state) => state.operationReducer);
-  console.log(todos);
+  console.log(user.photoURL);
 
   const handleEditFormWithSelectedTodo = (todo) => {
     setOpenEditForm(true);
@@ -29,30 +29,31 @@ function TodosList() {
       {todos.map((todo) => (
         <div
           key={todo.id}
-          className="flex gap-3 border-b bg-slate-100 bg-opacity-60 py-2 px-8 rounded-xl mb-2 hover:scale-105 transition-all duration-300"
+          className="flex gap-3 border-b bg-slate-100 bg-opacity-60 py-2 px-10 rounded-xl mb-2 hover:scale-105 transition-all duration-300"
         >
           <div className="flex items-center">
             <button
               onClick={() => dispatch(toggleTodo(todo.id, user.uid))}
               className={`overflow-hidden flex items-center justify-center rounded-full border-2 h-9 w-9 border-slate-600 hover:border-slate-400`}
             >
-              {todo.completed ? (
-                <FaCheck
-                  className={`fill-white w-full h-full transition-all duration-500
-                   ${
-                     todo.completed &&
-                     "bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700 animate-appearance"
-                   }`}
-                />
-              ) : (
-                <FaCheck
-                  className={`fill-transparent w-full h-full transition-all duration-500 
-                 ${
-                   !todo.completed &&
-                   "bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700 animate-appearanceOut"
-                 }`}
-                />
-              )}
+              <div
+                className={`w-full h-full flex items-center justify-center
+               ${
+                 todo.completed
+                   ? "bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700 animate-appearance"
+                   : "bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700 animate-appearanceOut"
+               }`}
+              >
+                {todo.completed ? (
+                  <FaCheck
+                    className={`fill-white h-8 w-6 transition-all duration-500`}
+                  />
+                ) : (
+                  <FaCheck
+                    className={`fill-transparent h-8 w-6 transition-all duration-500`}
+                  />
+                )}
+              </div>
             </button>
           </div>
           <div className="flex justify-between w-full">
@@ -82,17 +83,17 @@ function TodosList() {
                   className="h-full w-7 fill-slate-700 hover:fill-slate-500"
                 />
               </button>
-              {openEditForm && (
-                <EditForm
-                  selectedTodo={selectedTodo}
-                  openEditForm={openEditForm}
-                  setOpenEditForm={setOpenEditForm}
-                />
-              )}
             </div>
           </div>
         </div>
       ))}
+      {openEditForm && (
+        <EditForm
+          selectedTodo={selectedTodo}
+          openEditForm={openEditForm}
+          setOpenEditForm={setOpenEditForm}
+        />
+      )}
     </main>
   );
 }
