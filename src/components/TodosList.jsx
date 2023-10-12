@@ -58,7 +58,7 @@ function TodosList() {
           <div className="flex justify-between w-full gap-5">
             <div>
               <p
-                className={`text-xl font-semibold ${
+                className={`text-xl font-semibold max-w-[250px] overflow-auto break-words ${
                   todo.completed
                     ? "text-gray-400 line-through"
                     : "text-gray-700"
@@ -66,7 +66,7 @@ function TodosList() {
               >
                 {todo.title}
               </p>
-              <p className="text-sm px-1">{todo.description}</p>
+              <p className="text-sm max-w-[250px] overflow-auto break-words">{todo.description}</p>
               <p className="uppercase text-xs font-bold">{todo.date}</p>
             </div>
             <div className="flex justify-between gap-5 ml-3">
