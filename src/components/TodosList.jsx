@@ -24,11 +24,11 @@ function TodosList() {
   }, [dispatch]);
 
   return (
-    <main className="py-3 px-2">
+    <main className="py-3">
       {todos.map((todo) => (
         <div
           key={todo.id}
-          className="flex gap-3 border-b bg-slate-100 bg-opacity-60 py-2 px-10 rounded-xl mb-2 hover:scale-105 transition-all duration-300"
+          className="sm:min-w-[450px] flex gap-7 border-b bg-slate-100 bg-opacity-60 py-2 px-5 rounded-xl mb-2 hover:scale-105 transition-all duration-300"
         >
           <div className="flex items-center">
             <button
@@ -55,10 +55,10 @@ function TodosList() {
               </div>
             </button>
           </div>
-          <div className="flex justify-between w-full">
+          <div className="flex justify-between w-full gap-5">
             <div>
               <p
-                className={`grow text-xl font-semibold ${
+                className={`text-xl font-semibold ${
                   todo.completed
                     ? "text-gray-400 line-through"
                     : "text-gray-700"
@@ -69,7 +69,7 @@ function TodosList() {
               <p className="text-sm px-1">{todo.description}</p>
               <p className="uppercase text-xs font-bold">{todo.date}</p>
             </div>
-            <div className="flex justify-between gap-3 ml-3">
+            <div className="flex justify-between gap-5 ml-3">
               <button>
                 <FaEdit
                   onClick={() => handleEditFormWithSelectedTodo(todo)}

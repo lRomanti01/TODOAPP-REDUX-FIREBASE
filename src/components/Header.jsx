@@ -21,7 +21,7 @@ function Header() {
   };
 
   return (
-    <div className="px-3 flex justify-between items-center">
+    <div className="px-3 flex justify-between items-center animate-appearance">
       <div>
         <h1 className="text-slate-100 font-bold text-5xl tracking-widest cursor-pointer hover:animate-pulse">
           TODO
