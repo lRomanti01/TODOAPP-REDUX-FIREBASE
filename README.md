@@ -1,41 +1,60 @@
-# TODO APP - REACT 
+# TODO APP - REACT
 
-## Introducción
+## Introducción / Introduction
 
-Este proyecto es un Todo App con una UI sencilla donde le dedico mas
-tiempo a la funcionalidad que al UI. Esta app cumple con los requisitos de poder crear todos, modificarlos, eliminarlos y marcarlos como completados. Incluye un botón para eliminar los todos completados.
+Este proyecto es un Todo App con una UI sencilla donde le dedico más tiempo a la funcionalidad que al UI. Esta app cumple con los requisitos de poder crear todos, modificarlos, eliminarlos y marcarlos como completados. Incluye un botón para eliminar los todos completados.
 
-![Captura login](/src/assets/Login-capture.png)
-![Captura app](/src/assets/Home-capture.png)
+This project is a Todo App with a simple UI where I focus more on functionality than on the UI. This app meets the requirements to create todos, modify them, delete them, and mark them as completed. It includes a button to remove completed todos.
 
-Este Todo App utiliza firebase para iniciar sesión (Solo con google).
-Y guarda cada Todo para cada usuario. Y utiliza react router para crear una ruta protegida a la cual solo se puede entrar con la cuenta iniciada, así mejorando la experiencia de usuario.
+![Captura login](/src/assets/Login-capture.png)  
+![Captura app](/src/assets/Home-capture.png)  
 
-## Tecnologías utilizadas
+Este Todo App utiliza Firebase para iniciar sesión (solo con Google) y guarda cada Todo para cada usuario. También usa React Router para crear una ruta protegida, permitiendo el acceso solo con una cuenta iniciada, lo que mejora la experiencia del usuario.
 
-En este trabajo se ha utilizado varias tecnologías, entre esta tenemos:
+This Todo App uses Firebase for authentication (Google only) and stores each Todo for each user. It also uses React Router to create a protected route, allowing access only with a logged-in account, improving the user experience.
+
+## Tecnologías utilizadas / Technologies Used
+
+En este trabajo se han utilizado varias tecnologías, entre ellas tenemos:
+
+```md
+This project has been built using several technologies, including:
 
 - Vite (4.4.5)
 - React (18.2.0)
 - Firebase (10.4.0)
-- React router(6.16.0)
+- React Router (6.16.0)
 - Redux (4.2.1)
 - Tailwind CSS (3.3.3)
+```
 
-## Instalación
+## Instalación / Installation
 
-1- Click en el botón verde 'Code' Luego bien puede clonar al proyecto o descargar ZIP.
+```md
+1. Click en el botón verde **"Code"**, luego puedes clonar el proyecto o descargar el ZIP.  
+   Click the green **"Code"** button, then you can clone the project or download the ZIP.
 
-2- Encontrar el archivo zip en su pc y extraerlo.
+2. Encuentra el archivo ZIP en tu PC y extráelo.  
+   Locate the ZIP file on your PC and extract it.
 
-3- Instalar **NodeJs** y **NPM** en su sistema local
+3. Instala **Node.js** y **NPM** en tu sistema local.  
+   Install **Node.js** and **NPM** on your local system.
 
-4- Abrir directorio raíz e install las dependencias escribiendo en su terminal: **npm install** 
+4. Abre el directorio raíz e instala las dependencias escribiendo en la terminal:  
+   Open the root directory and install the dependencies by running the following command:
 
-5- Escribir comando **npm run dev** para correr la aplicación
+   ```sh
+   npm install
+   ```
 
-Una vez que haya terminado, puede cerrar la aplicación en su terminal para salir de la aplicación.
+5. Ejecuta el siguiente comando para correr la aplicación:  
+   Run the following command to start the application:
 
+   ```sh
+   npm run dev
+   ```
 
-
+Una vez que hayas terminado, puedes cerrar la terminal para salir de la aplicación.  
+Once you’re done, you can close the terminal to exit the application.
+```
 
